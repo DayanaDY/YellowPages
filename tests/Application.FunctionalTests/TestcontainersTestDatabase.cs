@@ -1,22 +1,23 @@
 ﻿using System.Data.Common;
-using YellowPages.Infrastructure.Data;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Respawn;
-using Testcontainers.MsSql;
+using Testcontainers.PostgreSql;
+using YellowPages.Application.FunctionalTests;
+using YellowPages.Infrastructure.Data;
 
 namespace YellowPages.Application.FunctionalTests;
 
 public class TestcontainersTestDatabase : ITestDatabase
 {
-    private readonly MsSqlContainer _container;
-    private DbConnection _connection = null!;
+    private readonly PostgreSqlContainer _container; // MsSqlContainer
+    private NpgsqlConnection _connection = null!;
     private string _connectionString = null!;
     private Respawner _respawner = null!;
 
     public TestcontainersTestDatabase()
     {
-        _container = new MsSqlBuilder()
+        _container = new PostgreSqlBuilder() // MsSqlBuilder
             .WithAutoRemove(true)
             .Build();
     }
@@ -27,19 +28,22 @@ public class TestcontainersTestDatabase : ITestDatabase
 
         _connectionString = _container.GetConnectionString();
 
-        _connection = new SqlConnection(_connectionString);
+        _connection = new NpgsqlConnection(_connectionString);
+        await _connection.OpenAsync(); // Added
 
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseSqlServer(_connectionString)
+            .UseNpgsql(_connectionString) // UseSqlServer
             .Options;
 
         var context = new ApplicationDbContext(options);
 
-        context.Database.Migrate();
+        await context.Database.MigrateAsync(); // Modified
 
-        _respawner = await Respawner.CreateAsync(_connectionString, new RespawnerOptions
+        _respawner = await Respawner.CreateAsync(_connection, new RespawnerOptions
         {
-            TablesToIgnore = new Respawn.Graph.Table[] { "__EFMigrationsHistory" }
+            DbAdapter = DbAdapter.Postgres, // Added
+            SchemasToInclude = ["public"], // Added
+            TablesToIgnore = ["__EFMigrationsHistory"] // (Optional) Equal to: new Respawn.Graph.Table[] { "__EFMigrationsHistory" }
         });
     }
 
@@ -50,7 +54,7 @@ public class TestcontainersTestDatabase : ITestDatabase
 
     public async Task ResetAsync()
     {
-        await _respawner.ResetAsync(_connectionString);
+        await _respawner.ResetAsync(_connection); // await _respawner.ResetAsync(_connectionString);
     }
 
     public async Task DisposeAsync()

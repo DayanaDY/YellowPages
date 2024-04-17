@@ -1,6 +1,4 @@
 ﻿using System.Data.Common;
-using YellowPages.Application.Common.Interfaces;
-using YellowPages.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -8,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using YellowPages.Application.Common.Interfaces;
+using YellowPages.Application.FunctionalTests;
+using YellowPages.Infrastructure.Data;
 
 namespace YellowPages.Application.FunctionalTests;
 
@@ -35,7 +36,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 .AddDbContext<ApplicationDbContext>((sp, options) =>
                 {
                     options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
-                    options.UseSqlServer(_connection);
+                    options.UseNpgsql(_connection); // UseSqlServer
                 });
         });
     }
