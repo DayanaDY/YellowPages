@@ -23,7 +23,7 @@ public class CustomResult : IActionResult
             {
                 foreach (var address in person.Addresses)
                 {
-                    await response.WriteAsync($"{"Office Address:"} {address.Street}, {address.City}, {address.PostalCode}\n");
+                    await response.WriteAsync($"{"Office Address:"} {address.Street}, {address.City}\n");
                     foreach (var phoneNumber in address.TelephoneNumbers)
                     {
                         await response.WriteAsync($"Tel: {phoneNumber.Number}\n");

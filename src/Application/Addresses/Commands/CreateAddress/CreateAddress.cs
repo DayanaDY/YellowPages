@@ -33,7 +33,6 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand,
 
         entity.Street = request.Street;
         entity.City = request.City;
-        entity.PostalCode = request.PostalCode;
         entity.PersonId = request.PersonId;
         entity.AddressType = request.AddressType;
 

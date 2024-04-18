@@ -67,6 +67,115 @@
         ]
       }
     },
+    "/api/Addresses/byType/{addressType}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "operationId": "GetAddressesByType",
+        "parameters": [
+          {
+            "name": "addressType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AddressType"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Addresses/byCity/{city}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "operationId": "GetAddressesByCity",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Addresses/byPersonId/{personId}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "operationId": "GetAddressesByPersonId",
+        "parameters": [
+          {
+            "name": "personId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Addresses/{id}": {
       "put": {
         "tags": [
@@ -186,6 +295,43 @@
                 "schema": {
                   "type": "integer",
                   "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/People/byPersonId/{personId}": {
+      "get": {
+        "tags": [
+          "People"
+        ],
+        "operationId": "GetPeopleById",
+        "parameters": [
+          {
+            "name": "personId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonVm"
                 }
               }
             }
@@ -802,10 +948,6 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "street": {
             "type": "string",
             "nullable": true
@@ -831,69 +973,28 @@
             "items": {
               "$ref": "#/components/schemas/TelephoneNumberDto"
             }
-          },
-          "personId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "person": {
-            "$ref": "#/components/schemas/PersonDto"
           }
         }
       },
       "AddressType": {
-        "type": "integer",
+        "type": "string",
         "description": "",
         "x-enumNames": [
           "Home",
-          "Business"
+          "Office"
         ],
         "enum": [
-          0,
-          1
+          "Home",
+          "Office"
         ]
       },
       "TelephoneNumberDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "number": {
+          "Tel:": {
             "type": "string",
             "nullable": true
-          },
-          "addressId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddressDto"
-            }
-          }
-        }
-      },
-      "PersonDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddressDto"
-            }
           }
         }
       },
@@ -949,6 +1050,22 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PersonDto"
+            }
+          }
+        }
+      },
+      "PersonDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddressDto"
             }
           }
         }

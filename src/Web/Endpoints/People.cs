@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using YellowPages.Application.Addresses.Queries.GetAddresses;
 using YellowPages.Application.People.Commands.CreatePerson;
 using YellowPages.Application.People.Commands.DeletePerson;
 using YellowPages.Application.People.Commands.UpdatePerson;
@@ -13,6 +14,7 @@ public class People : EndpointGroupBase
         app.MapGroup(this)
             .RequireAuthorization()
             .MapGet(GetPeople)
+            .MapGet(GetPeopleById, "byPersonId/{personId}")
             .MapPost(CreatePerson)
             .MapPut(UpdatePerson, "{id}")
             .MapDelete(DeletePerson, "{id}");
@@ -22,6 +24,12 @@ public class People : EndpointGroupBase
     public async Task<PersonVm> GetPeople(ISender sender)
     {
         return await sender.Send(new GetPeopleQuery());
+    }
+
+    public async Task<PersonVm> GetPeopleById(ISender sender, int personId)
+    {
+        var query = new GetPeopleByIdQuery { PersonId = personId };
+        return await sender.Send(query);
     }
 
     public async Task<int> CreatePerson(ISender sender, CreatePersonCommand command)

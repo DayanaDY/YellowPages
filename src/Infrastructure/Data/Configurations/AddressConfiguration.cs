@@ -14,8 +14,6 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
            .IsRequired();
         builder.Property(t => t.City)
           .IsRequired();
-        builder.Property(t => t.PostalCode)
-          .IsRequired();
 
         builder
             .HasMany(a => a.TelephoneNumbers)

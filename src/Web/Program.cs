@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
@@ -11,6 +13,21 @@ builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+
+// Configure JSON serialization settings
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.WriteIndented = true; // Set formatting to indented
+    options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignore null values
+});
 
 // Configure Serilog
 Log.Logger = new LoggerConfiguration()
@@ -46,16 +63,6 @@ app.UseSwaggerUi3(settings =>
     settings.Path = "/api";
     settings.DocumentPath = "/api/specification.json";
 });
-
-////builder.Services.AddSwaggerGen(c =>
-////{
-////    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-
-////    // Customize response descriptions
-////    c.UseInlineDefinitionsForEnums();
-////    c.CustomSchemaIds(type => type.FullName);
-////    c.DescribeAllParametersInCamelCase();
-////});
 
 app.MapControllerRoute(
     name: "default",
