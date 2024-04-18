@@ -4,9 +4,11 @@ namespace YellowPages.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
-    DbSet<TodoList> TodoLists { get; }
+    public DbSet<Person> People { get; }
 
-    DbSet<TodoItem> TodoItems { get; }
+    public DbSet<Address> Addresses { get; }
+
+    public DbSet<TelephoneNumber> TelephoneNumbers { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

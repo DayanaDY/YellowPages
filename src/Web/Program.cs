@@ -1,3 +1,6 @@
+using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Events;
 using YellowPages.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,16 @@ builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning) // Exclude Microsoft logs
+    .MinimumLevel.Override("System", LogEventLevel.Warning)
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day) // Log to a file with daily rolling
+    .CreateLogger();
+
+builder.Host.UseSerilog(); // Use Serilog for logging
 
 var app = builder.Build();
 
@@ -22,6 +35,8 @@ else
     app.UseHsts();
 }
 
+app.UseSerilogRequestLogging();
+
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -31,6 +46,16 @@ app.UseSwaggerUi3(settings =>
     settings.Path = "/api";
     settings.DocumentPath = "/api/specification.json";
 });
+
+////builder.Services.AddSwaggerGen(c =>
+////{
+////    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+////    // Customize response descriptions
+////    c.UseInlineDefinitionsForEnums();
+////    c.CustomSchemaIds(type => type.FullName);
+////    c.DescribeAllParametersInCamelCase();
+////});
 
 app.MapControllerRoute(
     name: "default",

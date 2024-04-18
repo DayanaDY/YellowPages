@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using YellowPages.Infrastructure.Data;
@@ -11,9 +12,11 @@ using YellowPages.Infrastructure.Data;
 namespace YellowPages.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240417140627_AddedPersonAddressTelephoneNumberModels")]
+    partial class AddedPersonAddressTelephoneNumberModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -262,6 +265,83 @@ namespace YellowPages.Infrastructure.Data.Migrations
                     b.ToTable("TelephoneNumbers");
                 });
 
+            modelBuilder.Entity("YellowPages.Domain.Entities.TodoItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset>("Created")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Done")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset>("LastModified")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ListId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("Reminder")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListId");
+
+                    b.ToTable("TodoItems");
+                });
+
+            modelBuilder.Entity("YellowPages.Domain.Entities.TodoList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset>("Created")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("LastModified")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TodoLists");
+                });
+
             modelBuilder.Entity("YellowPages.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -399,6 +479,40 @@ namespace YellowPages.Infrastructure.Data.Migrations
                     b.Navigation("Address");
                 });
 
+            modelBuilder.Entity("YellowPages.Domain.Entities.TodoItem", b =>
+                {
+                    b.HasOne("YellowPages.Domain.Entities.TodoList", "List")
+                        .WithMany("Items")
+                        .HasForeignKey("ListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("List");
+                });
+
+            modelBuilder.Entity("YellowPages.Domain.Entities.TodoList", b =>
+                {
+                    b.OwnsOne("YellowPages.Domain.ValueObjects.Colour", "Colour", b1 =>
+                        {
+                            b1.Property<int>("TodoListId")
+                                .HasColumnType("integer");
+
+                            b1.Property<string>("Code")
+                                .IsRequired()
+                                .HasColumnType("text");
+
+                            b1.HasKey("TodoListId");
+
+                            b1.ToTable("TodoLists");
+
+                            b1.WithOwner()
+                                .HasForeignKey("TodoListId");
+                        });
+
+                    b.Navigation("Colour")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Person", b =>
                 {
                     b.Navigation("Addresses");
@@ -407,6 +521,11 @@ namespace YellowPages.Infrastructure.Data.Migrations
             modelBuilder.Entity("YellowPages.Domain.Entities.Address", b =>
                 {
                     b.Navigation("TelephoneNumbers");
+                });
+
+            modelBuilder.Entity("YellowPages.Domain.Entities.TodoList", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }
