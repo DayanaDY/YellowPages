@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using YellowPages.Application.Addresses.Queries.GetAddresses;
 using YellowPages.Application.People.Commands.CreatePerson;
 using YellowPages.Application.People.Commands.DeletePerson;
 using YellowPages.Application.People.Commands.UpdatePerson;

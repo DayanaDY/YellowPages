@@ -1,6 +1,5 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Json;
-using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using YellowPages.Infrastructure.Data;

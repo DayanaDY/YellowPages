@@ -1,12 +1,10 @@
-﻿using System.Runtime.InteropServices;
-using YellowPages.Domain.Constants;
-using YellowPages.Domain.Entities;
-using YellowPages.Infrastructure.Identity;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using YellowPages.Domain.Constants;
+using YellowPages.Infrastructure.Identity;
 
 namespace YellowPages.Infrastructure.Data;
 

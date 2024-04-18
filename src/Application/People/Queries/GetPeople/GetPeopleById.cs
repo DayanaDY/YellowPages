@@ -1,5 +1,4 @@
 ﻿using YellowPages.Application.Common.Interfaces;
-using YellowPages.Application.People.Queries.GetPeople;
 
 namespace YellowPages.Application.People.Queries.GetPeople;
 

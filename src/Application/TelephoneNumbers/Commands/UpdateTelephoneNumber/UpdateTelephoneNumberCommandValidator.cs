@@ -12,6 +12,9 @@ public class UpdateTelephoneNumberCommandValidator : AbstractValidator<UpdateTel
 
         RuleFor(v => v.Number)
             .NotEmpty();
+
+        RuleFor(v => v.Number)
+           .NotEmpty();
     }
 
     public async Task<bool> BeUniqueTitle(UpdateTelephoneNumberCommand model, string number, CancellationToken cancellationToken)

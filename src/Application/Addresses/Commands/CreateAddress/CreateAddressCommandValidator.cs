@@ -12,5 +12,14 @@ public class CreateAddressCommandValidator : AbstractValidator<CreateAddressComm
 
         RuleFor(v => v.Street)
             .NotEmpty();
+
+        RuleFor(v => v.City)
+            .NotEmpty();
+
+        RuleFor(v => v.PersonId)
+            .NotEmpty();
+
+        RuleFor(v => v.AddressType)
+            .NotEmpty();
     }
 }

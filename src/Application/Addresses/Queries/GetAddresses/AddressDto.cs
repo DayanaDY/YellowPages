@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using YellowPages.Application.People.Queries.GetPeople;
 using YellowPages.Application.TelephoneNumbers.Queries.GetTelephoneNumbers;
 using YellowPages.Domain.Entities;

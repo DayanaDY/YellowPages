@@ -12,5 +12,8 @@ public class CreateTelephoneNumberCommandValidator : AbstractValidator<CreateTel
 
         RuleFor(v => v.Number)
             .NotEmpty();
+
+        RuleFor(v => v.AddressId)
+           .NotEmpty();
     }
 }

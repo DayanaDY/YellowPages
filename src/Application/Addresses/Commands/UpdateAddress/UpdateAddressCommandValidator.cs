@@ -11,6 +11,15 @@ public class UpdateAddressCommandValidator : AbstractValidator<UpdateAddressComm
         _context = context;
 
         RuleFor(v => v.Street)
+             .NotEmpty();
+
+        RuleFor(v => v.City)
+            .NotEmpty();
+
+        RuleFor(v => v.PersonId)
+            .NotEmpty();
+
+        RuleFor(v => v.AddressType)
             .NotEmpty();
     }
 

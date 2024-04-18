@@ -1,6 +1,4 @@
-﻿using YellowPages.Application.Common.Models;
-
-namespace YellowPages.Application.TelephoneNumbers.Queries.GetTelephoneNumbers;
+﻿namespace YellowPages.Application.TelephoneNumbers.Queries.GetTelephoneNumbers;
 
 public class TelephoneNumberVm
 {

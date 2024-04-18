@@ -1,4 +1,6 @@
 ﻿using YellowPages.Application.Common.Interfaces;
+using YellowPages.Domain.Entities;
+using YellowPages.Domain.Enums;
 
 namespace YellowPages.Application.Addresses.Commands.UpdateAddress;
 
@@ -7,6 +9,12 @@ public record UpdateAddressCommand : IRequest
     public int Id { get; init; }
 
     public string? Street { get; init; }
+
+    public string? City { get; init; }
+
+    public AddressType? AddressType { get; set; }
+
+    public int PersonId { get; set; }
 }
 
 public class UpdateAddressCommandHandler : IRequestHandler<UpdateAddressCommand>

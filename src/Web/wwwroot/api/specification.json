@@ -1039,6 +1039,22 @@
           "street": {
             "type": "string",
             "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressType"
+              }
+            ]
+          },
+          "personId": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },

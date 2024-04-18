@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace YellowPages.Domain.Entities;
+﻿namespace YellowPages.Domain.Entities;
 
 public class Address : BaseAuditableEntity
 {
