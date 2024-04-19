@@ -85,23 +85,51 @@ public class ApplicationDbContextInitialiser
             }
         }
 
-        ////// Default data
-        ////// Seed, if necessary
-        ////if (!_context.TodoLists.Any())
-        ////{
-        ////    _context.TodoLists.Add(new TodoList
-        ////    {
-        ////        Title = "Todo List",
-        ////        Items =
-        ////        {
-        ////            new TodoItem { Title = "Make a todo list 📃" },
-        ////            new TodoItem { Title = "Check off the first item ✅" },
-        ////            new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
-        ////            new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
-        ////        }
-        ////    });
+        // Default data
+        // Seed, if necessary
+        if (!_context.People.Any())
+        {
+            _context.People.Add(new Person
+            {
+                FullName = "Burns, David Goss"
+            });
 
-        ////    await _context.SaveChangesAsync();
-        ////}
+            await _context.SaveChangesAsync();
+
+            var person = _context.People.First(x => x.FullName == "Burns, David Goss");
+
+            _context.Addresses.Add(new Domain.Entities.Address
+            {
+                Street = "114 Hill St.", 
+                City = "Sofia", 
+                AddressType = Domain.Enums.AddressType.Office,
+                PersonId = person.Id
+            });
+
+            _context.Addresses.Add(new Domain.Entities.Address
+            {
+                Street = "110 Runnymede St.",
+                City = "Sofia",
+                AddressType = Domain.Enums.AddressType.Home,
+                PersonId = person.Id
+            });
+
+            await _context.SaveChangesAsync();
+
+            var address1 = _context.Addresses.First(x => x.Street == "114 Hill St.");
+            _context.TelephoneNumbers.Add(new Domain.Entities.TelephoneNumber
+            {
+                Number = "230235",
+                AddressId = address1.Id
+            });
+
+            _context.TelephoneNumbers.Add(new Domain.Entities.TelephoneNumber
+            {
+                Number = "109736",
+                AddressId = address1.Id
+            });
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

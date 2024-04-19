@@ -26,6 +26,7 @@ public class UpdatePersonCommandHandler : IRequestHandler<UpdatePersonCommand>
         Guard.Against.NotFound(request.Id, entity);
 
         entity.FullName = request.FullName;
+        entity.Id = request.Id;
 
         await _context.SaveChangesAsync(cancellationToken);
 

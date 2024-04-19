@@ -34,8 +34,10 @@ public class UpdateAddressCommandHandler : IRequestHandler<UpdateAddressCommand>
         Guard.Against.NotFound(request.Id, entity);
 
         entity.Street = request.Street;
+        entity.City = request.City;
+        entity.AddressType = request.AddressType;
+        entity.PersonId = request.PersonId;
 
         await _context.SaveChangesAsync(cancellationToken);
-
     }
 }

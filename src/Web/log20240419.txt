@@ -60,3 +60,62 @@
 2024-04-19 10:16:25.368 +03:00 [INF] HTTP GET /api/index.html responded 200 in 45.8633 ms
 2024-04-19 10:25:21.719 +03:00 [INF] HTTP GET /api/index.html responded 200 in 45.5651 ms
 2024-04-19 10:25:50.521 +03:00 [INF] HTTP GET /api/index.html responded 200 in 46.2275 ms
+2024-04-19 10:49:27.342 +03:00 [INF] HTTP GET /api/index.html responded 200 in 50.8704 ms
+2024-04-19 10:49:27.473 +03:00 [INF] HTTP GET /api/specification.json responded 200 in 15.4965 ms
+2024-04-19 11:31:10.436 +03:00 [INF] HTTP GET / responded 302 in 2.2187 ms
+2024-04-19 11:31:10.468 +03:00 [INF] HTTP GET /api responded 302 in 2.2594 ms
+2024-04-19 11:31:10.515 +03:00 [INF] HTTP GET /api/index.html responded 200 in 41.6577 ms
+2024-04-19 11:31:10.792 +03:00 [INF] HTTP GET /api/specification.json responded 304 in 1.6287 ms
+2024-04-19 11:31:37.036 +03:00 [INF] HTTP POST /api/Users/login responded 200 in 246.2131 ms
+2024-04-19 11:32:02.699 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 11:32:02.713 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 190.7031 ms
+2024-04-19 11:34:00.514 +03:00 [ERR] YellowPages Request: Unhandled Exception for Request UpdateAddressCommand {"Id":5,"Street":"Update Street","City":"Update City","AddressType":"Home","PersonId":0,"$type":"UpdateAddressCommand"}
+YellowPages.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at YellowPages.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 31
+   at YellowPages.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\AuthorizationBehaviour.cs:line 77
+   at YellowPages.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 18
+2024-04-19 11:34:00.528 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+YellowPages.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at YellowPages.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 31
+   at YellowPages.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\AuthorizationBehaviour.cs:line 77
+   at YellowPages.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Yankovi\source\repos\YellowPages\src\Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 18
+   at YellowPages.Web.Endpoints.Addresses.UpdateAddress(ISender sender, Int32 id, UpdateAddressCommand command) in C:\Users\Yankovi\source\repos\YellowPages\src\Web\Endpoints\Addresses.cs:line 55
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-04-19 11:34:00.547 +03:00 [INF] HTTP PUT /api/Addresses/5 responded 400 in 87.6996 ms
+2024-04-19 11:34:15.425 +03:00 [INF] HTTP PUT /api/Addresses/5 responded 204 in 112.5102 ms
+2024-04-19 11:43:57.226 +03:00 [INF] HTTP GET / responded 302 in 2.7902 ms
+2024-04-19 11:43:57.273 +03:00 [INF] HTTP GET /api responded 302 in 3.8030 ms
+2024-04-19 11:43:57.362 +03:00 [INF] HTTP GET /api/index.html responded 200 in 77.4096 ms
+2024-04-19 11:43:57.507 +03:00 [INF] HTTP GET /api/specification.json responded 200 in 21.8725 ms
+2024-04-19 11:44:24.449 +03:00 [INF] HTTP POST /api/Users/login responded 200 in 319.7504 ms
+2024-04-19 11:45:38.540 +03:00 [WRN] YellowPages Long Running Request: UpdateAddressCommand (41048 milliseconds) fc1057a1-c139-4dd0-b2b3-0945d0224f05 dayana@yahoo.com {"Id":4,"Street":"Test street","City":"string","AddressType":"Home","$type":"UpdateAddressCommand"}
+2024-04-19 11:45:38.543 +03:00 [INF] HTTP PUT /api/Addresses/4 responded 204 in 41086.4325 ms
+2024-04-19 12:10:33.148 +03:00 [INF] HTTP GET / responded 302 in 2.4963 ms
+2024-04-19 12:10:33.191 +03:00 [INF] HTTP GET /api responded 302 in 2.7592 ms
+2024-04-19 12:10:33.269 +03:00 [INF] HTTP GET /api/index.html responded 200 in 69.9289 ms
+2024-04-19 12:10:33.428 +03:00 [INF] HTTP GET /api/specification.json responded 200 in 19.1385 ms
+2024-04-19 15:34:57.441 +03:00 [INF] HTTP POST /api/Users/login responded 200 in 359.9122 ms
+2024-04-19 15:35:17.660 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:35:17.676 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 213.8587 ms
+2024-04-19 15:35:36.029 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:35:36.036 +03:00 [INF] HTTP GET /api/Addresses/byId/0 responded 200 in 21.9152 ms
+2024-04-19 15:35:44.707 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:35:44.715 +03:00 [INF] HTTP GET /api/Addresses/byType/Office responded 200 in 21.5033 ms
+2024-04-19 15:35:57.100 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:35:57.107 +03:00 [INF] HTTP GET /api/Addresses/byPersonId/6 responded 200 in 26.7301 ms
+2024-04-19 15:36:00.988 +03:00 [INF] HTTP GET /api/Addresses/byPersonId/0 responded 200 in 7.4324 ms
+2024-04-19 15:36:26.385 +03:00 [WRN] YellowPages Long Running Request: UpdateAddressCommand (3181 milliseconds) fc1057a1-c139-4dd0-b2b3-0945d0224f05 dayana@yahoo.com {"Id":0,"Street":"test","City":"test","AddressType":"Home","$type":"UpdateAddressCommand"}
+2024-04-19 15:36:26.388 +03:00 [INF] HTTP PUT /api/Addresses/0 responded 204 in 3216.7703 ms
+2024-04-19 15:36:41.666 +03:00 [INF] HTTP GET /api/Addresses/byId/0 responded 200 in 5.7839 ms
+2024-04-19 15:37:17.910 +03:00 [INF] HTTP PUT /api/Addresses/5 responded 400 in 36.9719 ms
+2024-04-19 15:37:46.461 +03:00 [WRN] YellowPages Long Running Request: UpdateAddressCommand (16632 milliseconds) fc1057a1-c139-4dd0-b2b3-0945d0224f05 dayana@yahoo.com {"Id":5,"Street":"test","City":"test","AddressType":"Home","$type":"UpdateAddressCommand"}
+2024-04-19 15:37:46.461 +03:00 [INF] HTTP PUT /api/Addresses/5 responded 204 in 16636.7143 ms
+2024-04-19 15:38:06.944 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:38:06.950 +03:00 [INF] HTTP GET /api/People responded 200 in 20.4365 ms
+2024-04-19 15:38:26.794 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 15:38:26.803 +03:00 [INF] HTTP GET /api/People/byPersonId/8 responded 200 in 17.7908 ms
+2024-04-19 15:38:45.945 +03:00 [INF] HTTP PUT /api/People/8 responded 204 in 33.0705 ms
+2024-04-19 15:39:09.340 +03:00 [INF] HTTP GET /api/TelephoneNumber responded 200 in 21.7205 ms

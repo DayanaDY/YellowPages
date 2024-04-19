@@ -67,6 +67,43 @@
         ]
       }
     },
+    "/api/Addresses/byId/{id}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "operationId": "GetAddressesById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Addresses/byType/{addressType}": {
       "get": {
         "tags": [
@@ -1043,10 +1080,6 @@
                 "$ref": "#/components/schemas/AddressType"
               }
             ]
-          },
-          "personId": {
-            "type": "integer",
-            "format": "int32"
           }
         }
       },

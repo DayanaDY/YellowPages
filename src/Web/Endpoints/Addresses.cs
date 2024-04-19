@@ -1,4 +1,5 @@
-﻿using YellowPages.Application.Addresses.Commands.CreateAddress;
+﻿using Microsoft.EntityFrameworkCore;
+using YellowPages.Application.Addresses.Commands.CreateAddress;
 using YellowPages.Application.Addresses.Commands.DeleteAddress;
 using YellowPages.Application.Addresses.Commands.UpdateAddress;
 using YellowPages.Application.Addresses.Queries.GetAddresses;
@@ -13,6 +14,7 @@ public class Addresses : EndpointGroupBase
         app.MapGroup(this)
             .RequireAuthorization()
             .MapGet(GetAddresses)
+            .MapGet(GetAddressesById, "byId/{id}")
             .MapGet(GetAddressesByType, "byType/{addressType}")
             .MapGet(GetAddressesByCity, "byCity/{city}")
             .MapGet(GetAddressesByPersonId, "byPersonId/{personId}")
@@ -24,6 +26,12 @@ public class Addresses : EndpointGroupBase
     public async Task<AddressVm> GetAddresses(ISender sender)
     {
         return await sender.Send(new GetAddressesQuery());
+    }
+
+    public async Task<AddressVm> GetAddressesById(ISender sender, int id)
+    {
+        var query = new GetAddressesByIdQuery { Id = id };
+        return await sender.Send(query);
     }
 
     public async Task<AddressVm> GetAddressesByType(ISender sender, AddressType addressType)
