@@ -24,6 +24,10 @@ builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options =>
 // Configure JSON serialization settings
 builder.Services.Configure<JsonOptions>(options =>
 {
+    options.SerializerOptions.Converters.Add(new CustomPersonConverter());
+    options.SerializerOptions.Converters.Add(new CustomAddressConverter());
+    options.SerializerOptions.Converters.Add(new CustomTelephoneNumberConverter());
+
     options.SerializerOptions.WriteIndented = true; // Set formatting to indented
     options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignore null values
 });

@@ -1,0 +1,62 @@
+2024-04-19 09:37:17.950 +03:00 [INF] HTTP GET / responded 302 in 2.8941 ms
+2024-04-19 09:37:17.985 +03:00 [INF] HTTP GET /api responded 302 in 2.3827 ms
+2024-04-19 09:37:18.036 +03:00 [INF] HTTP GET /api/index.html responded 200 in 43.4389 ms
+2024-04-19 09:37:18.389 +03:00 [INF] HTTP GET /api/specification.json responded 200 in 8.9523 ms
+2024-04-19 09:37:39.757 +03:00 [INF] HTTP POST /api/Users/login responded 200 in 256.8829 ms
+2024-04-19 09:38:04.349 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:38:04.364 +03:00 [INF] HTTP GET /api/People responded 200 in 184.6956 ms
+2024-04-19 09:41:45.176 +03:00 [INF] HTTP GET / responded 302 in 3.2815 ms
+2024-04-19 09:41:45.220 +03:00 [INF] HTTP GET /api responded 302 in 2.7672 ms
+2024-04-19 09:41:45.314 +03:00 [INF] HTTP GET /api/index.html responded 200 in 85.4866 ms
+2024-04-19 09:42:00.735 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:42:00.762 +03:00 [INF] HTTP GET /api/People responded 200 in 230.1433 ms
+2024-04-19 09:44:05.885 +03:00 [INF] HTTP GET / responded 302 in 4.3771 ms
+2024-04-19 09:44:05.929 +03:00 [INF] HTTP GET /api responded 302 in 2.7214 ms
+2024-04-19 09:44:06.013 +03:00 [INF] HTTP GET /api/index.html responded 200 in 76.4246 ms
+2024-04-19 09:47:39.545 +03:00 [INF] HTTP GET / responded 302 in 3.8066 ms
+2024-04-19 09:47:39.606 +03:00 [INF] HTTP GET /api responded 302 in 3.0174 ms
+2024-04-19 09:47:39.749 +03:00 [INF] HTTP GET /api/index.html responded 200 in 121.7088 ms
+2024-04-19 09:47:59.562 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:47:59.595 +03:00 [INF] HTTP GET /api/People responded 200 in 233.1090 ms
+2024-04-19 09:48:32.026 +03:00 [INF] HTTP GET /api/People responded 200 in 53.5279 ms
+2024-04-19 09:48:43.449 +03:00 [INF] HTTP GET /api/People responded 200 in 16.3016 ms
+2024-04-19 09:51:35.542 +03:00 [INF] HTTP GET / responded 302 in 2.8858 ms
+2024-04-19 09:51:35.583 +03:00 [INF] HTTP GET /api responded 302 in 3.4570 ms
+2024-04-19 09:51:35.667 +03:00 [INF] HTTP GET /api/index.html responded 200 in 75.6511 ms
+2024-04-19 09:51:46.160 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:51:46.188 +03:00 [INF] HTTP GET /api/People responded 200 in 244.5000 ms
+2024-04-19 09:55:54.495 +03:00 [INF] HTTP GET / responded 302 in 3.1996 ms
+2024-04-19 09:55:54.536 +03:00 [INF] HTTP GET /api responded 302 in 2.6563 ms
+2024-04-19 09:55:54.617 +03:00 [INF] HTTP GET /api/index.html responded 200 in 72.1730 ms
+2024-04-19 09:56:08.268 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:56:08.298 +03:00 [INF] HTTP GET /api/People responded 200 in 232.6734 ms
+2024-04-19 09:58:35.064 +03:00 [INF] HTTP GET / responded 302 in 3.1832 ms
+2024-04-19 09:58:35.117 +03:00 [INF] HTTP GET /api responded 302 in 3.0874 ms
+2024-04-19 09:58:35.189 +03:00 [INF] HTTP GET /api/index.html responded 200 in 64.4675 ms
+2024-04-19 09:58:56.286 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:58:56.309 +03:00 [INF] HTTP GET /api/People responded 200 in 214.6157 ms
+2024-04-19 09:59:42.538 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 09:59:42.551 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 88.0793 ms
+2024-04-19 10:03:55.667 +03:00 [INF] HTTP GET / responded 302 in 3.0049 ms
+2024-04-19 10:03:55.700 +03:00 [INF] HTTP GET /api responded 302 in 2.2205 ms
+2024-04-19 10:03:55.746 +03:00 [INF] HTTP GET /api/index.html responded 200 in 40.7644 ms
+2024-04-19 10:04:07.245 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:04:07.263 +03:00 [INF] HTTP GET /api/People responded 200 in 176.8380 ms
+2024-04-19 10:04:17.713 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:04:17.722 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 78.9163 ms
+2024-04-19 10:04:56.398 +03:00 [INF] HTTP GET /api/index.html responded 200 in 44.4699 ms
+2024-04-19 10:05:14.638 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:05:14.659 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 215.8983 ms
+2024-04-19 10:05:32.664 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:05:32.669 +03:00 [INF] HTTP GET /api/People responded 200 in 70.6586 ms
+2024-04-19 10:08:03.077 +03:00 [INF] HTTP GET / responded 302 in 2.8362 ms
+2024-04-19 10:08:03.113 +03:00 [INF] HTTP GET /api responded 302 in 4.0171 ms
+2024-04-19 10:08:03.162 +03:00 [INF] HTTP GET /api/index.html responded 200 in 42.1449 ms
+2024-04-19 10:08:17.971 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:08:17.993 +03:00 [INF] HTTP GET /api/Addresses responded 200 in 216.2601 ms
+2024-04-19 10:08:28.609 +03:00 [INF] HTTP GET /api/TelephoneNumber responded 200 in 57.4127 ms
+2024-04-19 10:08:54.983 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-04-19 10:08:54.987 +03:00 [INF] HTTP GET /api/People responded 200 in 18.9967 ms
+2024-04-19 10:16:25.368 +03:00 [INF] HTTP GET /api/index.html responded 200 in 45.8633 ms
+2024-04-19 10:25:21.719 +03:00 [INF] HTTP GET /api/index.html responded 200 in 45.5651 ms
+2024-04-19 10:25:50.521 +03:00 [INF] HTTP GET /api/index.html responded 200 in 46.2275 ms

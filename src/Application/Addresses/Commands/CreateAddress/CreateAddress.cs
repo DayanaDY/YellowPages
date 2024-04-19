@@ -10,8 +10,6 @@ public record CreateAddressCommand : IRequest<int>
 
     public string? City { get; init;}
 
-    public string? PostalCode { get; init; }
-
     public AddressType? AddressType { get; init; }
 
     public int PersonId { get; init; }

@@ -13,7 +13,7 @@ public class PersonDto
     [JsonIgnore]
     public int Id { get; init; }
 
-    [JsonPropertyName("Name")]
+    ////[JsonPropertyName("Name")]
     public string? FullName { get; init; }
 
     public IReadOnlyCollection<AddressDto> Addresses { get; init; }

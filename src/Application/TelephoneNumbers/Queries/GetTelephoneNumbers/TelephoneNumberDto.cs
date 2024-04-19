@@ -13,7 +13,7 @@ public class TelephoneNumberDto
     public int Id { get; init; }
 
 
-    [JsonPropertyName("Tel:")]
+    ////[JsonPropertyName("Tel:")]
     public string? Number { get; init; }
 
     [JsonIgnore]

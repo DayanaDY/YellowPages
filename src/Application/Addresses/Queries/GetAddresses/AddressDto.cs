@@ -13,7 +13,6 @@ public class AddressDto
     public string? Street { get; init; }
 
     public string? City { get; init; }
-    public string? PostalCode { get; init; }
 
     public AddressType? AddressType { get; init; }
 

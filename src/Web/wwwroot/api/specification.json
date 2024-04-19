@@ -956,10 +956,6 @@
             "type": "string",
             "nullable": true
           },
-          "postalCode": {
-            "type": "string",
-            "nullable": true
-          },
           "addressType": {
             "nullable": true,
             "oneOf": [
@@ -992,7 +988,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "Tel:": {
+          "number": {
             "type": "string",
             "nullable": true
           }
@@ -1007,10 +1003,6 @@
             "nullable": true
           },
           "city": {
-            "type": "string",
-            "nullable": true
-          },
-          "postalCode": {
             "type": "string",
             "nullable": true
           },
@@ -1074,7 +1066,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "Name": {
+          "fullName": {
             "type": "string",
             "nullable": true
           },
